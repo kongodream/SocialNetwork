@@ -9,5 +9,9 @@
         <mapping class="com.gamenet.domain.Data" />
         <mapping class="com.gamenet.domain.Person" />
         <mapping class="com.gamenet.domain.Profile" />
+
+        <mapping class="com.gamenet.domain.UserRole" />
+        <mapping class="com.gamenet.domain.User" />
+        <mapping class="com.gamenet.domain.Role" />
     </session-factory>
 </hibernate-configuration>

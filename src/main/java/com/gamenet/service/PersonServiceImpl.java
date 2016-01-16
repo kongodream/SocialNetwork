@@ -1,10 +1,9 @@
 package com.gamenet.service;
 
-import com.gamenet.dao.PersonDAO;
+import com.gamenet.dao.PersonDao;
 import com.gamenet.domain.Person;
 import com.gamenet.domain.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,18 +16,18 @@ import java.util.List;
 public class PersonServiceImpl implements PersonService, ProfileService{
 
     @Autowired
-    private PersonDAO personDAO;
+    private PersonDao personDao;
 
     @Override
     @Transactional
     public List<Person> listPersons() {
-        return personDAO.listPersons();
+        return personDao.listPersons();
     }
 
     @Override
     @Transactional
     public Person getPersonById(int id) {
-        return personDAO.getPersonById(id);
+        return personDao.getPersonById(id);
     }
 
 

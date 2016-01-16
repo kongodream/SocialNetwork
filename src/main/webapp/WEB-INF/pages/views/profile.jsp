@@ -39,7 +39,7 @@
 <h2>${person.email}</h2>
 <h3>${person.login}</h3>
 <p>Стать: ${profile.sex}</p>
-<p>Коротка інформація: ${data.shortInformation}</p>
+<%--<p>Коротка інформація: ${data.shortInformation}</p>--%>
 
     <footer>
         <p>© 2015 Company, Inc.</p>

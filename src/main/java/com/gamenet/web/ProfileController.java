@@ -20,16 +20,16 @@ import java.util.List;
 @Controller
 public class ProfileController {
 
-    @Autowired
-    private PersonService personService;
+//    @Autowired
+//    private PersonService personService;
 
 
     @RequestMapping("/profile/{personId}")
     public String showProfile(@PathVariable int personId,ModelMap model){
-        Person person = personService.getPersonById(personId);
-        model.addAttribute("person", person);
-        model.addAttribute("data", person.getData());
-        model.addAttribute("profile", person.getProfile());
-        return "views/profile";
+//        Person person = personService.getPersonById(personId);
+//        model.addAttribute("person", person);
+//        model.addAttribute("data", person.getData());
+//        model.addAttribute("profile", person.getProfile());
+        return "tmp/login";
     }
 }
