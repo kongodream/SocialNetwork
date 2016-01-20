@@ -1,6 +1,7 @@
 package com.gamenet.dao;
 
 import com.gamenet.domain.Data;
+import com.gamenet.domain.User;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
  */
 public interface DataDao {
 
-    public List<Data> listData();
+    public Data getDataFor(User user);
 
 }

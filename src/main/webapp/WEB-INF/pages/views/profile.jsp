@@ -36,9 +36,15 @@
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <br/><br/>
-<h2>${person.email}</h2>
-<h3>${person.login}</h3>
+<h2>${profile.surname}</h2>
+<h3>${profile.name}</h3>
 <p>Стать: ${profile.sex}</p>
+<br/><br/>
+<h3>INFORMATION</h3>
+<p><b>About me: </b> ${userData.shortInformation}</p>
+<p><b>My favorite books: </b> ${userData.books}</p>
+<p><b>My favorite music: </b> ${userData.music}</p>
+<p><b>My films: </b> ${userData.films}</p>
 <%--<p>Коротка інформація: ${data.shortInformation}</p>--%>
 
     <footer>

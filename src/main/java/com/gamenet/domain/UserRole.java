@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "User_roles", uniqueConstraints = @UniqueConstraint(
-        columnNames ={"username", "role_id"}))
+        columnNames ={"user_id", "role_id"}))
 public class UserRole {
 
     @Id
@@ -17,7 +17,7 @@ public class UserRole {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "username",  nullable = false)
+    @JoinColumn(name = "user_id",  nullable = false)
     private User user;
 
     @ManyToOne

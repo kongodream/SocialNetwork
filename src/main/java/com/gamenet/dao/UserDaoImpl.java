@@ -26,6 +26,15 @@ public class UserDaoImpl implements UserDao {
         return users.size() > 0 ? users.get(0) : null;
     }
 
+    @Override
+    public User findUserById(int id) {
+        List<User> users = sessionFactory.getCurrentSession()
+                .createQuery("from User where id=?")
+                .setParameter(0, id)
+                .list();
+        return users.size() > 0 ? users.get(0) : null;
+    }
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

@@ -7,4 +7,6 @@ import com.gamenet.domain.User;
  */
 public interface UserDao {
     public User findByUserName(String username);
+
+    public User findUserById(int id);
 }

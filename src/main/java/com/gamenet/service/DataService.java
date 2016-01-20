@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface DataService {
 
-    public List<Data> listData();
+    public Data getDataFor(int userId);
 
 }

@@ -17,7 +17,7 @@ public class Data {
     @Id
     @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="person"))
+    @GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="user"))
     private int id;
 
     @Column(name = "short_information")
@@ -40,7 +40,7 @@ public class Data {
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private Person person;
+    private User user;
 
     public Data(String shortInformation, String films, String music, String books, String games, String favoritePersons) {
         this.shortInformation = shortInformation;
@@ -56,6 +56,10 @@ public class Data {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getShortInformation() {
@@ -104,5 +108,13 @@ public class Data {
 
     public void setFavoritePersons(String favoritePersons) {
         this.favoritePersons = favoritePersons;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

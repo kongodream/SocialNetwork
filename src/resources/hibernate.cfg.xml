@@ -7,7 +7,6 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <mapping class="com.gamenet.domain.Data" />
-        <mapping class="com.gamenet.domain.Person" />
         <mapping class="com.gamenet.domain.Profile" />
 
         <mapping class="com.gamenet.domain.UserRole" />

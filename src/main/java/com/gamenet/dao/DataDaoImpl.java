@@ -1,6 +1,7 @@
 package com.gamenet.dao;
 
 import com.gamenet.domain.Data;
+import com.gamenet.domain.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,8 +20,8 @@ public class DataDaoImpl implements DataDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Data> listData() {
-        return sessionFactory.getCurrentSession().createQuery("from Data").list();
+    public Data getDataFor(User user) {
+        return user.getData();
     }
 
 

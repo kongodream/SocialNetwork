@@ -1,8 +1,8 @@
 package com.gamenet.service;
 
-import com.gamenet.dao.DataDao;
-import com.gamenet.dao.DataDaoImpl;
+import com.gamenet.dao.UserDao;
 import com.gamenet.domain.Data;
+import com.gamenet.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,11 +16,12 @@ import java.util.List;
 public class DataServiceImpl implements DataService {
 
     @Autowired
-    private DataDaoImpl dataDao;
+    private UserDao userDao;
 
     @Override
     @Transactional
-    public List<Data> listData() {
-        return dataDao.listData();
+    public Data getDataFor(int userId) {
+        User user = userDao.findUserById(userId);
+        return user.getData();
     }
 }

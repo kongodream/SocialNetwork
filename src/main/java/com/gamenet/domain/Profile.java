@@ -35,7 +35,7 @@ public class Profile {
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private Person person;
+    private User user;
 
     public Profile(String name, String surname, String sex) {
         this.name = name;
@@ -51,12 +51,8 @@ public class Profile {
     public Profile() {
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
+    public User getUser() {
+        return user;
     }
 
     public int getId() {
