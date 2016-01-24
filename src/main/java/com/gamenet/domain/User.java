@@ -1,9 +1,7 @@
 package com.gamenet.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,7 +12,7 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "username")
@@ -33,25 +31,37 @@ public class User {
     private Set<UserRole> userRoles = new HashSet<>();
 
 
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="user", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Profile profile;
 
-    @OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy="user", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Data data;
 
+    @OneToMany(mappedBy = "fromUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<FriendInvite> personRequests;
+
+    @OneToMany(mappedBy = "toUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<FriendInvite> requestsFromPersons;
 
     public  User() {
     }
 
-    public User(String username, String password, boolean enabled) {
+    public User(String username, String password, boolean enabled, String email) {
         this.username = username;
         this.password = password;
+        this.email = email;
         this.enabled = enabled;
     }
 
+    public boolean isSubscriber(User user) {
+//        boolean isUserSubscriber = this.getRequestsFromPersons().contains(user);
+//        if(isUserSubscriber) return true;
+        return true;
+    }
+
     public User(String username, String password,
-                boolean enabled, UserRole userRole, Profile profile) {
-        this(username, password, enabled);
+                boolean enabled, String email, UserRole userRole, Profile profile) {
+        this(username, password, enabled, email);
         this.userRoles.addAll(userRoles);
         this.profile = profile;
     }
@@ -118,5 +128,21 @@ public class User {
 
     public void setData(Data data) {
         this.data = data;
+    }
+
+    public Set<FriendInvite> getPersonRequests() {
+        return personRequests;
+    }
+
+    public void setPersonRequests(Set<FriendInvite> invites) {
+        this.personRequests = invites;
+    }
+
+    public Set<FriendInvite> getRequestsFromPersons() {
+        return requestsFromPersons;
+    }
+
+    public void setRequestsFromPersons(Set<FriendInvite> friendRequests) {
+        this.requestsFromPersons = friendRequests;
     }
 }

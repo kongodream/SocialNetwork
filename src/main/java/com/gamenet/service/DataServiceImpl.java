@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * Created by ivan on 02.01.16.
  */
@@ -21,7 +19,7 @@ public class DataServiceImpl implements DataService {
     @Override
     @Transactional
     public Data getDataFor(int userId) {
-        User user = userDao.findUserById(userId);
+        User user = userDao.getUserById(userId);
         return user.getData();
     }
 }

@@ -9,7 +9,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public class SocialNetUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        com.gamenet.domain.User user = userDao.findByUserName(username);
+        com.gamenet.domain.User user = userDao.getUserByName(username);
 
         List<GrantedAuthority> authorities = buildUserForAuthority(user.getUserRoles());
 

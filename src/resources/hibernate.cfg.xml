@@ -4,7 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--<property key="hibernate.id.new_generator_mappings">false</property>-->
         <property name="show_sql">true</property>
         <mapping class="com.gamenet.domain.Data" />
         <mapping class="com.gamenet.domain.Profile" />
@@ -12,5 +14,6 @@
         <mapping class="com.gamenet.domain.UserRole" />
         <mapping class="com.gamenet.domain.User" />
         <mapping class="com.gamenet.domain.Role" />
+        <mapping class="com.gamenet.domain.FriendInvite" />
     </session-factory>
 </hibernate-configuration>

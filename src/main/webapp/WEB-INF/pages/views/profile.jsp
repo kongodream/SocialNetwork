@@ -9,42 +9,38 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-theme.min.css" />" type="text/css"/>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="http://getbootstrap.com/examples/jumbotron/#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
-        </div><!--/.navbar-collapse -->
-    </div>
-</nav>
+<c:import url="header.jsp"/>
+<c:import url="sidebar.jsp"/>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <br/><br/>
 <h2>${profile.surname}</h2>
 <h3>${profile.name}</h3>
 <p>Стать: ${profile.sex}</p>
-<br/><br/>
+<br/>
+
+<c:choose>
+    <c:when test="${currentUser.isSubscriber(user)}">
+            <p>TTTTTTTTTTTTTTT</p>>
+    </c:when>
+    <c:otherwise>
+        <p>Other</p>
+    </c:otherwise>
+</c:choose>
+
+<div id="addToFriendDiv">
+    <button type="button" id="addToFriend" class="btn btn-default" value="${user.id}">
+        Add to my friend
+    </button>
+</div>
+<br/>
 <h3>INFORMATION</h3>
 <p><b>About me: </b> ${userData.shortInformation}</p>
 <p><b>My favorite books: </b> ${userData.books}</p>
 <p><b>My favorite music: </b> ${userData.music}</p>
 <p><b>My films: </b> ${userData.films}</p>
+
+<p><b>--- : </b> ${user.personRequests}</p>
 <%--<p>Коротка інформація: ${data.shortInformation}</p>--%>
 
     <footer>
@@ -54,5 +50,9 @@
 
 <script src="/resources/javascript/jquery-2.1.4.min.js"></script>
 <script src="/resources/javascript/bootstrap.min.js"></script>
+
+<script>
+</script>
+<script src="/resources/javascript/friend_invite.js"></script>
 </body>
 </html>

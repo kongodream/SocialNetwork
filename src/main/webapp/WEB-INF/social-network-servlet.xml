@@ -59,4 +59,8 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
+    <bean id="friendInvite" class="com.gamenet.dao.FriendInviteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 </beans>
